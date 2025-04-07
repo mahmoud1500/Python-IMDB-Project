@@ -1,6 +1,6 @@
 📊 IMDB & Metacritic Movie Analysis with MongoDB and Sentiment NLP
 This project showcases a complete data analysis pipeline built with Python, Pandas, MongoDB, and NLP for sentiment analysis. It focuses on retrieving movie data from IMDB (via Excel), uploading and cleaning the data in MongoDB, merging it with Metacritic records, and performing linear regression analysis to understand factors affecting movie revenue.
-
+### 📦 [IMDB Data Analysis](https://github.com/mahmoud1500/Python-IMDB-Project/blob/84474f97360dd2dcd1761ceb182bf0e5e41b9fee/IMDB%20Project.ipynb)
 Key components include:
 
 📥 Data Ingestion: Load IMDB data from Excel and upload it to MongoDB.
@@ -19,4 +19,4 @@ The analysis is performed in a Jupyter Notebook and connected securely to MongoD
 
 This project demonstrates data engineering, statistical modeling, and natural language processing (NLP) in action for entertainment industry insights.
 
-### 📦 [IMDB Data Analysis](https://github.com/mahmoud1500/Python-IMDB-Project/blob/84474f97360dd2dcd1761ceb182bf0e5e41b9fee/IMDB%20Project.ipynb)
+
