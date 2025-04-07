@@ -19,3 +19,4 @@ The analysis is performed in a Jupyter Notebook and connected securely to MongoD
 
 This project demonstrates data engineering, statistical modeling, and natural language processing (NLP) in action for entertainment industry insights.
 
+### 📦 [IMDB Data Analysis](https://github.com/mahmoud1500/Python-IMDB-Project/blob/84474f97360dd2dcd1761ceb182bf0e5e41b9fee/IMDB%20Project.ipynb)
