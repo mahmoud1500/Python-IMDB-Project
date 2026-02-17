@@ -1,22 +1,3 @@
-📊 IMDB & Metacritic Movie Analysis with MongoDB and Sentiment NLP
-This project showcases a complete data analysis pipeline built with Python, Pandas, MongoDB, and NLP for sentiment analysis. It focuses on retrieving movie data from IMDB (via Excel), uploading and cleaning the data in MongoDB, merging it with Metacritic records, and performing linear regression analysis to understand factors affecting movie revenue.
-### 📦 [IMDB Data Analysis](https://github.com/mahmoud1500/Python-IMDB-Project/blob/84474f97360dd2dcd1761ceb182bf0e5e41b9fee/IMDB%20Project.ipynb)
-Key components include:
-
-📥 Data Ingestion: Load IMDB data from Excel and upload it to MongoDB.
-
-🧹 Data Cleaning & Transformation: Filter and process movie data using pandas, especially focusing on films released in the year 2000.
-
-🔗 Data Integration: Merge IMDB and Metacritic datasets based on movie titles.
-
-📈 Regression Modeling: Apply linear regression with statsmodels to analyze relationships between variables like budget, rating, and gross sales.
-
-💬 Sentiment Analysis: Use transformers pipelines with pre-trained models (DistilBERT, XLM-Roberta) to analyze movie descriptions and extract sentiment features.
-
-🧠 Feature Engineering: Create new columns, including custom sentiment scores, to enhance the dataset for deeper analysis.
-
-The analysis is performed in a Jupyter Notebook and connected securely to MongoDB using a credentials.json file (excluded from version control for security).
-
-This project demonstrates data engineering, statistical modeling, and natural language processing (NLP) in action for entertainment industry insights.
-
-
+🎬 IMDB & Metacritic Data Analysis (Year 2000)Author: Mahmoud FaisalTech Stack: Python, MongoDB, Scikit-Learn, Statsmodels, Transformers📌 Project OverviewThis project performs a comprehensive data analysis and predictive modeling on movies released in the year 2000. By integrating data from MongoDB Atlas (IMDB and Metacritic datasets), the study explores the relationship between movie budgets, user ratings, and financial success. It also leverages AI Sentiment Analysis to evaluate movie descriptions and their correlation with user reception.🚀 Key FeaturesData Integration: Secure connection to MongoDB Atlas to fetch and merge disparate datasets.Feature Engineering: Calculation of ROI (Return on Investment) and Log-transformations to handle revenue skewness.Statistical Modeling: An OLS Regression model to determine which factors (budget, votes, runtime) significantly impact gross revenue.AI Sentiment Analysis: Utilizes distilbert-base-uncased via the Hugging Face Transformers library to score movie descriptions.Data Visualization: Correlation heatmaps, residual plots, and distribution charts for deep insight.🛠️ Installation & SetupTo run this notebook, you will need to install the following dependencies:Bashpip install pandas numpy scikit-learn pymongo certifi statsmodels matplotlib seaborn transformers torch
+Note: You must have a credentials.json file in the root directory containing your MongoDB connection string:JSON{ "mongodb": "your_connection_string_here" }
+📊 Methodology & Analysis1. Data Cleaning & IntegrationThe project filters over 29,000 IMDB records and 10,000 Metacritic records to isolate films from the year 2000. Data cleaning involves:Regex-based title normalization for accurate merging.Conversion of currency strings (e.g., "$80,000,000") into numeric floats.Standardization of predictors using Z-score normalization.2. Regression ResultsThe Ordinary Least Squares (OLS) model yielded an R-squared of 0.366, indicating that approximately 36.6% of the variance in log-revenue can be explained by the included features.Significant Predictor: Budget ($P < 0.05$) showed a strong positive correlation with revenue.Insignificant Predictors: Interestingly, user ratings and runtime were not primary drivers of revenue for this specific year's data.3. Sentiment AnalysisThe project applies a Transformer-based sentiment pipeline to the description field:Positive Score: Closer to 1.0Negative Score: Closer to -1.0Fallback: If Transformers are not installed, the script uses a custom keyword-based scoring algorithm.📈 VisualizationsThe analysis includes several plots to validate findings:Correlation Matrix: Visualizing the relationship between budget, votes, and ratings.Residual Plot: Checking for homoscedasticity in the regression model.Sentiment vs. Rating: A scatter plot exploring if "critically descriptive" sentiment aligns with user scores.📁 Repository Structureanalysis.ipynb: The main Jupyter Notebook containing all logic and visualizations.credentials.json: (Ignored/Required) MongoDB access credentials.README.md: Project documentation.🤝 ContributingContributions, issues, and feature requests are welcome! Feel free to check the issues page if you want to contribute.
