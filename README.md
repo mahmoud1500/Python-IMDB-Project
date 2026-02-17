@@ -33,6 +33,7 @@ Data is pulled from MongoDB, filtered for the year 2000, and unified.
 * **Regex Cleaning:** Titles are normalized (lowercase, stripped, special characters removed) to ensure high-accuracy merging between IMDB and Metacritic.
 * **Currency Conversion:** Automated removal of symbols (`$`, `,`) and conversion to numeric types for budget and sales.
 
+
 ### 2. Statistical Modeling (OLS Regression)
 We modeled **Log-transformed Gross Revenue** against budget, user ratings, and runtime.
 
@@ -51,9 +52,15 @@ Using a pre-trained `distilbert-base-uncased-finetuned-sst-2-english` model, we 
 
 The project includes several diagnostic and exploratory plots:
 * **Correlation Heatmap:** To identify multicollinearity between features.
+<img width="792" height="687" alt="image" src="https://github.com/user-attachments/assets/73ab506e-ba6b-42e4-96f2-e7088349bb82" />
+
 * **Residual Plot:** To validate the OLS model assumptions (homoscedasticity).
+<img width="628" height="482" alt="image" src="https://github.com/user-attachments/assets/d1c7c773-73a3-4af3-8fda-f06854dc05c8" />
+
+
 * **Log-Distribution:** Visualizing revenue to justify the use of log-scaling.
 
+<img width="603" height="494" alt="image" src="https://github.com/user-attachments/assets/c33d6497-4a20-4ad4-8348-009f245cd8b5" />
 
 
 ---
