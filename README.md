@@ -1,3 +1,41 @@
-🎬 IMDB & Metacritic Data Analysis (Year 2000)Author: Mahmoud FaisalTech Stack: Python, MongoDB, Scikit-Learn, Statsmodels, Transformers📌 Project OverviewThis project performs a comprehensive data analysis and predictive modeling on movies released in the year 2000. By integrating data from MongoDB Atlas (IMDB and Metacritic datasets), the study explores the relationship between movie budgets, user ratings, and financial success. It also leverages AI Sentiment Analysis to evaluate movie descriptions and their correlation with user reception.🚀 Key FeaturesData Integration: Secure connection to MongoDB Atlas to fetch and merge disparate datasets.Feature Engineering: Calculation of ROI (Return on Investment) and Log-transformations to handle revenue skewness.Statistical Modeling: An OLS Regression model to determine which factors (budget, votes, runtime) significantly impact gross revenue.AI Sentiment Analysis: Utilizes distilbert-base-uncased via the Hugging Face Transformers library to score movie descriptions.Data Visualization: Correlation heatmaps, residual plots, and distribution charts for deep insight.🛠️ Installation & SetupTo run this notebook, you will need to install the following dependencies:Bashpip install pandas numpy scikit-learn pymongo certifi statsmodels matplotlib seaborn transformers torch
-Note: You must have a credentials.json file in the root directory containing your MongoDB connection string:JSON{ "mongodb": "your_connection_string_here" }
-📊 Methodology & Analysis1. Data Cleaning & IntegrationThe project filters over 29,000 IMDB records and 10,000 Metacritic records to isolate films from the year 2000. Data cleaning involves:Regex-based title normalization for accurate merging.Conversion of currency strings (e.g., "$80,000,000") into numeric floats.Standardization of predictors using Z-score normalization.2. Regression ResultsThe Ordinary Least Squares (OLS) model yielded an R-squared of 0.366, indicating that approximately 36.6% of the variance in log-revenue can be explained by the included features.Significant Predictor: Budget ($P < 0.05$) showed a strong positive correlation with revenue.Insignificant Predictors: Interestingly, user ratings and runtime were not primary drivers of revenue for this specific year's data.3. Sentiment AnalysisThe project applies a Transformer-based sentiment pipeline to the description field:Positive Score: Closer to 1.0Negative Score: Closer to -1.0Fallback: If Transformers are not installed, the script uses a custom keyword-based scoring algorithm.📈 VisualizationsThe analysis includes several plots to validate findings:Correlation Matrix: Visualizing the relationship between budget, votes, and ratings.Residual Plot: Checking for homoscedasticity in the regression model.Sentiment vs. Rating: A scatter plot exploring if "critically descriptive" sentiment aligns with user scores.📁 Repository Structureanalysis.ipynb: The main Jupyter Notebook containing all logic and visualizations.credentials.json: (Ignored/Required) MongoDB access credentials.README.md: Project documentation.🤝 ContributingContributions, issues, and feature requests are welcome! Feel free to check the issues page if you want to contribute.
+# 🎬 IMDB & Metacritic Data Analysis (2000)
+
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB%20Atlas-green.svg)](https://www.mongodb.com/atlas)
+[![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-orange.svg)](https://scikit-learn.org/)
+
+A data science project analyzing movie performance, financial ROI, and critic sentiment for films released in the year 2000. This project integrates data from **IMDB** and **Metacritic** via **MongoDB Atlas** to perform statistical modeling and NLP-driven sentiment analysis.
+
+---
+
+## 📌 Project Overview
+
+This project explores what makes a movie successful. By merging IMDB's financial and user data with Metacritic's professional scores, we analyze:
+* **Predictive Modeling:** Using OLS Regression to find the strongest drivers of Gross Sales.
+* **Feature Engineering:** Calculating ROI and applying log-transformations to skewed financial data.
+* **NLP Sentiment Analysis:** Using **Transformers (DistilBERT)** to analyze movie descriptions and correlate "hype" with actual user ratings.
+
+## 🛠️ Tech Stack
+
+* **Database:** MongoDB Atlas (PyMongo)
+* **Data Manipulation:** Pandas, NumPy
+* **Statistics:** Statsmodels (OLS Regression)
+* **Machine Learning:** Scikit-Learn (StandardScaler)
+* **NLP:** Hugging Face Transformers (DistilBERT)
+* **Visualization:** Matplotlib, Seaborn
+
+---
+
+## 🚀 Key Analysis Phases
+
+### 1. Data ETL & Cleaning
+Data is pulled from MongoDB, filtered for the year 2000, and unified.
+* **Regex Cleaning:** Titles are normalized (lowercase, stripped, special characters removed) to ensure high-accuracy merging between IMDB and Metacritic.
+* **Currency Conversion:** Automated removal of symbols (`$`, `,`) and conversion to numeric types for budget and sales.
+
+### 2. Statistical Modeling (OLS Regression)
+We modeled **Log-transformed Gross Revenue** against budget, user ratings, and runtime.
+
+$$log\_gross \sim budget\_new + user\_rating + runtime + votes$$
+
+**Key Finding:** The model achieved an **
