@@ -38,4 +38,50 @@ We modeled **Log-transformed Gross Revenue** against budget, user ratings, and r
 
 $$log\_gross \sim budget\_new + user\_rating + runtime + votes$$
 
-**Key Finding:** The model achieved an **
+**Key Finding:** The model achieved an **Adj. R-squared of 0.329**. Analysis showed that **Budget** is a statistically significant predictor ($P < 0.001$) of revenue, while user ratings and runtime had less impact on commercial success for this specific year.
+
+### 3. AI Sentiment Analysis
+Using a pre-trained `distilbert-base-uncased-finetuned-sst-2-english` model, we converted movie descriptions into a sentiment score range $[-1, 1]$. This allows us to see if the "tone" of a movie's description aligns with its eventual user rating.
+
+
+
+---
+
+## 📊 Visualizations
+
+The project includes several diagnostic and exploratory plots:
+* **Correlation Heatmap:** To identify multicollinearity between features.
+* **Residual Plot:** To validate the OLS model assumptions (homoscedasticity).
+* **Log-Distribution:** Visualizing revenue to justify the use of log-scaling.
+
+
+
+---
+
+## 📥 Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/yourusername/imdb-metacritic-analysis.git](https://github.com/yourusername/imdb-metacritic-analysis.git)
+    ```
+2.  **Install dependencies:**
+    ```bash
+    pip install pandas pymongo certifi statsmodels scikit-learn transformers matplotlib seaborn torch
+    ```
+3.  **Setup Credentials:**
+    Create a `credentials.json` file in the root directory:
+    ```json
+    {
+      "mongodb": "your_mongodb_atlas_connection_string"
+    }
+    ```
+
+## 📝 Results Summary
+* **Significant Features:** Budget and Vote Count.
+* **ROI Analysis:** Created a specific ROI metric to identify "sleeper hits" vs. "big-budget flops."
+* **Regression Diagnostics:** The residual plot suggests the model is well-specified, though external factors (marketing, competition) likely account for the remaining variance.
+
+---
+
+**Author:** Mahmoud Faisal  
+**License:** MIT
